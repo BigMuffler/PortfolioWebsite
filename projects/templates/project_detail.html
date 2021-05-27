@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ project.title }}</h1>
+<br>
+<div>
+    <img src="{% static project.image %}" alt="" width="50%" class = "center">
+</div>
+
+<br>
+<h5>About the project:</h5>
+<p>{{ project.deepDescription }}</p>
+
+<h5>Technology used: </h5>
+<p>{{ project.technology }}</p>
+<div>
+    <h5>Github: </h5>
+    <a href={{project.gitLink}}>{{ project.gitLink }}</a>
+</div>
+<br>
+
+<h5>Paper: </h5>
+<embed src="{% static project.paperLink %}" type="application/pdf" width="100%" height="600px" />
+
+<style>
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
+</style>
+
+{% endblock %}

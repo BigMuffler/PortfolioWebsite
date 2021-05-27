@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<br>
+
+<div>
+    <img src = "\static\other\headshot1.png" alt = "" width="25%" class = "resize">
+</div>
+
+<h2>About Me</h2>
+
+<p id = "first">
+    Hi! I am a 5th year Biomedical Engineering Honors Student at Simon Fraser University currently working 
+    on a thesis on the applications of deep learning in medical imaging. I am passionate about creating lasting software and hardware solutions
+    that propel the world forward. In my spare time I love playing Chess and would consider myself a tennis and golf enthusiast.
+</p>
+<br>
+
+<br>
+<h3>Notable Projects</h3>
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static project.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{% url 'project_detail' project.pk %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h3>Other Projects</h3>
+<div class="row">
+{% for project in smaller_projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <p class="card-text">{{ project.technology }}</p>
+                <a href="{% url 'smallproject_detail' project.pk %}"
+                   class="btn btn-primary">
+                    More info
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<h5>Contact Information</h5>
+<ul>
+    <li><h6>Email: sungurea@sfu.ca</h6></li>
+    <li><h6>LinkedIn: <a href = "https://www.linkedin.com/in/stefan-ungurean-961a111b4/"> LinkedIn </a></h6></li>
+    <li><h6>Github:<a href = "https://github.com/BigMuffler"> Github </a></h6></li>
+</ul>
+<style>
+    body{
+        background-color:whitesmoke;
+    }
+    h2{
+        color:black;
+        font-family: sans-serif;
+        
+        font-weight: bold;
+    }
+    .card-body{
+        background-color:snow;
+    }
+    h3{
+        
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    h5{
+        
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    h6{
+        
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    p{
+        font-family: sans-serif;
+    }
+    p#first {
+       width: 630px
+    }
+    img.resize {
+        max-width:40%;
+        max-height:40%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        float: right;
+    }
+    
+</style>
+{% endblock %}
+

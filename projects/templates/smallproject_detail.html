@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<h1>{{ smaller_projects.title }}</h1>
+<h5>About the project: </h5>
+<p>{{ smaller_projects.deepDescription }}</p>
+<h5>Technology used: </h5>
+<p>{{ smaller_projects.technology }}</p>
+<h5>Github: </h5>
+<a href={{smaller_projects.gitLink}}>{{ smaller_projects.gitLink }}</a>
+
+{% endblock %}
